@@ -1,0 +1,6 @@
+[submodule "dotfiles/z"]
+	path = dotfiles/z
+	url = https://github.com/rupa/z
+[submodule "dotfiles/fz"]
+	path = dotfiles/fz
+	url = https://github.com/changyuheng/fz
