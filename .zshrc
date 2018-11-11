@@ -1,31 +1,28 @@
-ZSH=/usr/share/oh-my-zsh/
-ZSH_THEME="chris"
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/chris/.zshrc'
 
-DISABLE_AUTO_UPDATE="true"
+autoload -Uz compinit promptinit
+promptinit
+compinit
 
-ZSH_CUSTOM=/home/chris/dotfiles/.oh-my-zsh/
+export PATH=/home/chris/.local/bin/:$PATH
 
-plugins=(git common-aliases fasd colored-man-pages linuxverboselib mykeybindings zsh-syntax-highlighting chris-misc)
+setopt PROMPT_SUBST
+source /home/chris/dotfiles/my-alias-pkg/prompt_chris_setup
 
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
+source /home/chris/dotfiles/my-alias-pkg/chris-misc.plugin.zsh
+source /home/chris/dotfiles/my-alias-pkg/init.sh
+
+source /home/chris/dotfiles/z/z.sh
+source /home/chris/dotfiles/fz/fz.plugin.zsh
+
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
 fi
 
-ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
-
-source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/scripts/zplug/init.zsh
-
-zplug "changyuheng/fz", defer:1
-zplug "rupa/z", use:z.sh
-zplug load
-
-
-eval $(thefuck --alias)
-
-HISTSIZE=1000000
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000000
+SAVEHIST=10000000
+# End of lines configured by zsh-newuser-install
