@@ -4,3 +4,6 @@
 [submodule "dotfiles/fz"]
 	path = dotfiles/fz
 	url = https://github.com/changyuheng/fz
+[submodule "dotfiles/Human-Friendly-Commands"]
+	path = dotfiles/Human-Friendly-Commands
+	url = https://github.com/chrissound/Human-Friendly-Commands.git
