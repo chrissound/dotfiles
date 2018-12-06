@@ -7,3 +7,6 @@
 [submodule "dotfiles/Human-Friendly-Commands"]
 	path = dotfiles/Human-Friendly-Commands
 	url = https://github.com/chrissound/Human-Friendly-Commands.git
+[submodule "dotfiles/my-alias-pkg"]
+	path = dotfiles/my-alias-pkg
+	url = git@github.com:chrissound/myaliases.git
