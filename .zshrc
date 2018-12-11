@@ -18,6 +18,7 @@ source /home/chris/dotfiles/Human-Friendly-Commands/fzf.plugin.zsh
 
 source /home/chris/dotfiles/z/z.sh
 source /home/chris/dotfiles/fz/fz.plugin.zsh
+source /home/chris/vte.sh
 
 
 if [ -n "${commands[fzf-share]}" ]; then
