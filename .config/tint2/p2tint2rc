@@ -56,14 +56,14 @@ border_color_pressed = #000000 100
 
 #-------------------------------------
 # Panel
-panel_items = TSC
-panel_size = 100% 60
-panel_margin = 0 0
+panel_items = CST
+panel_size = 80% 800
+panel_margin = 1520 400
 panel_padding = 2 0 2
 panel_background_id = 1
 wm_menu = 1
 panel_dock = 1
-panel_position = bottom right horizontal
+panel_position = bottom center vertical
 panel_layer = top
 panel_monitor = all
 primary_monitor_first = 0
@@ -105,7 +105,7 @@ task_text = 1
 task_icon = 1
 task_centered = 0
 urgent_nb_of_blink = 100000
-task_maximum_size = 110 105
+task_maximum_size = 130 52
 task_padding = 0 10 8
 task_tooltip = 1
 task_font_color = #ffffff 100
@@ -149,7 +149,9 @@ launcher_item_app = /usr/share/applications/google-chrome.desktop
 #-------------------------------------
 # Clock
 time1_format = %H:%M
+time1_font = Ubuntu 20
 time2_format = %A %d %B
+time2_font = Ubuntu 20
 time1_timezone = 
 time2_timezone = 
 clock_font_color = #ffffff 100
