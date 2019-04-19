@@ -31,12 +31,20 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     typescript
+     docker
+     php
+     nginx
+     javascript
+     html
+     csv
      markdown
      haskell
      haskell
      yaml
-     (haskell :variables haskell-completion-backend 'intero)
+     (haskell)
      ranger
+     gtags
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -48,10 +56,14 @@ values."
      helm
      spell-checking
      syntax-checking
-     version-control
+     (version-control :variables
+                      version-control-diff-tool 'diff-hl
+                      version-control-diff-side 'left
+                      )
      ;; better-defaults
      ;; markdown
      org
+     shell-scripts
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -61,15 +73,24 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+                                      frames-only-mode
                                       ranger
                                       real-auto-save
                                       nix-mode
                                       origami
+                                      highlight-indentation
+                                      iedit
+                                      adaptive-wrap
+                                      terraform-mode
+                                      gtags
+                                      ;; deadgrep
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(
+                                    intero
+                                    )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -137,13 +158,14 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(tsdh-dark)
+   dotspacemacs-themes '(deeper-blue)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Iosevka"
                                ;; :size 25 ;; dpi 192
+                               ;; :size 28 ;; dpi 192
                                :size 25 ;; dpi 192
                                :weight normal
                                :width normal
@@ -349,9 +371,10 @@ you should place your code here."
  '(ansi-color-names-vector
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(evil-want-Y-yank-to-eol nil)
+ '(helm-ag-base-command "rg --vimgrep --no-heading --smart-case")
  '(package-selected-packages
    (quote
-    (mmm-mode markdown-toc markdown-mode gh-md origami nix-mode org-projectile org-category-capture s org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot real-auto-save yaml-mode ranger helm-company helm-c-yasnippet fuzzy company-statistics company-cabal auto-yasnippet ac-ispell auto-complete smeargle orgit org-plus-contrib magit-gitflow helm-gitignore request gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell evil-magit magit magit-popup git-commit ghub treepy let-alist graphql with-editor diff-hl auto-dictionary intero flycheck dash hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode which-key use-package pcre2el macrostep hydra helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx flx helm-descbinds helm-ag exec-path-from-shell evil-visualstar evil-escape evil goto-chg undo-tree elisp-slime-nav diminish bind-map bind-key auto-compile packed ace-window ace-jump-helm-line helm avy helm-core popup async))))
+    (helm-gtags ggtags terraform-mode hcl-mode tide typescript-mode deadgrep spinner docker tablist dockerfile-mode docker-tramp adaptive-wrap iedit phpunit drupal-mode f phpcbf php-auto-yasnippets php-mode nginx-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode frames-only-mode company-web web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode web-completion-data highlight-indentation highlight-indent-guides indent-guide csv-mode insert-shebang fish-mode company-shell mmm-mode markdown-toc markdown-mode gh-md origami nix-mode org-projectile org-category-capture s org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot real-auto-save yaml-mode ranger helm-company helm-c-yasnippet fuzzy company-statistics company-cabal auto-yasnippet ac-ispell auto-complete smeargle orgit org-plus-contrib magit-gitflow helm-gitignore request gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell evil-magit magit magit-popup git-commit ghub treepy let-alist graphql with-editor diff-hl auto-dictionary intero flycheck dash hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode which-key use-package pcre2el macrostep hydra helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx flx helm-descbinds helm-ag exec-path-from-shell evil-visualstar evil-escape evil goto-chg undo-tree elisp-slime-nav diminish bind-map bind-key auto-compile packed ace-window ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
