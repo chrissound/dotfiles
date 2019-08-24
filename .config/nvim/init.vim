@@ -88,8 +88,11 @@ nnoremap <silent> <esc> :noh<cr><esc>
 set clipboard=unnamed,unnamedplus
 set guicursor=
 
-nnoremap - :E<CR>
+nnoremap - :Ranger<CR>
 
 call plug#begin()
 Plug 'yegappan/mru'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'LnL7/vim-nix'
 call plug#end()
