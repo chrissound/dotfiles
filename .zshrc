@@ -1,11 +1,8 @@
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/chris/.zshrc'
-
 autoload -Uz compinit promptinit
 promptinit
 compinit
 
-export PATH=/home/chris/.local/bin/:$PATH
+export PATH=/home/${USER}/.local/bin/:$PATH
 
 
 ## options 
@@ -14,22 +11,22 @@ setopt INC_APPEND_HISTORY
 setopt autocd
 setopt PROMPT_SUBST
 
-source /home/chris/dotfiles/my-alias-pkg/prompt_chris_setup
+source /home/${USER}/dotfiles/my-alias-pkg/prompt_chris_setup
 
-source /home/chris/dotfiles/my-alias-pkg/chris-misc.plugin.zsh
-source /home/chris/dotfiles/my-alias-pkg/init.sh
-source /home/chris/dotfiles/my-alias-pkg/completion.sh
+source /home/${USER}/dotfiles/my-alias-pkg/chris-misc.plugin.zsh
+source /home/${USER}/dotfiles/my-alias-pkg/init.sh
+source /home/${USER}/dotfiles/my-alias-pkg/completion.sh
 
-source /home/chris/dotfiles/Human-Friendly-Commands/commands.sh
-source /home/chris/dotfiles/Human-Friendly-Commands/fzf.plugin.zsh
-alias kubetail=/home/chris/dotfiles/kubetail/kubetail
-#source /home/chris/dotfiles/kubetail/kubetail
-#source /home/chris/dotfiles/kubetail/completion/kubetail.zsh
-source /home/chris/dotfiles/oh-my-zsh/plugins/git/git.plugin.zsh
+source /home/${USER}/dotfiles/Human-Friendly-Commands/commands.sh
+source /home/${USER}/dotfiles/Human-Friendly-Commands/fzf.plugin.zsh
+alias kubetail=/home/${USER}/dotfiles/kubetail/kubetail
+#source /home/${USER}/dotfiles/kubetail/kubetail
+#source /home/${USER}/dotfiles/kubetail/completion/kubetail.zsh
+source /home/${USER}/dotfiles/oh-my-zsh/plugins/git/git.plugin.zsh
 
-source /home/chris/dotfiles/z/z.sh
-source /home/chris/dotfiles/fz/fz.plugin.zsh
-source /home/chris/vte.sh
+source /home/${USER}/dotfiles/z/z.sh
+source /home/${USER}/dotfiles/fz/fz.plugin.zsh
+source /home/${USER}/vte.sh
 
 
 if [ -n "${commands[fzf-share]}" ]; then
@@ -74,7 +71,7 @@ case $TERM in
     ;;
 esac
 
-source /home/chris/.config/broot/launcher/bash/br
+source /home/${USER}/.config/broot/launcher/bash/br
 
 function sudi (){
     echo "errrhmmm"
