@@ -1,1 +1,4 @@
-/[^.]*
+# Ignore everything
+*
+# Include top-level dot files.
+!/.*
