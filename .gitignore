@@ -1,4 +1,4 @@
 # Ignore everything
 *
-# Include top-level dot files.
-!/.*
+# Include all dot files.
+!.*
