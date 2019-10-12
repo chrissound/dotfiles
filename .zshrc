@@ -2,7 +2,7 @@ autoload -Uz compinit promptinit
 promptinit
 compinit
 
-export PATH=/home/${USER}/.local/bin/:$PATH
+export PATH=${HOME}/.local/bin/:$PATH
 
 
 ## options 
@@ -11,22 +11,22 @@ setopt INC_APPEND_HISTORY
 setopt autocd
 setopt PROMPT_SUBST
 
-source /home/${USER}/dotfiles/my-alias-pkg/prompt_chris_setup
+source ${HOME}/dotfiles/my-alias-pkg/prompt_chris_setup
 
-source /home/${USER}/dotfiles/my-alias-pkg/chris-misc.plugin.zsh
-source /home/${USER}/dotfiles/my-alias-pkg/init.sh
-source /home/${USER}/dotfiles/my-alias-pkg/completion.sh
+source ${HOME}/dotfiles/my-alias-pkg/chris-misc.plugin.zsh
+source ${HOME}/dotfiles/my-alias-pkg/init.sh
+source ${HOME}/dotfiles/my-alias-pkg/completion.sh
 
-source /home/${USER}/dotfiles/Human-Friendly-Commands/commands.sh
-source /home/${USER}/dotfiles/Human-Friendly-Commands/fzf.plugin.zsh
-alias kubetail=/home/${USER}/dotfiles/kubetail/kubetail
-#source /home/${USER}/dotfiles/kubetail/kubetail
-#source /home/${USER}/dotfiles/kubetail/completion/kubetail.zsh
-source /home/${USER}/dotfiles/oh-my-zsh/plugins/git/git.plugin.zsh
+source ${HOME}/dotfiles/Human-Friendly-Commands/commands.sh
+source ${HOME}/dotfiles/Human-Friendly-Commands/fzf.plugin.zsh
+alias kubetail=${HOME}/dotfiles/kubetail/kubetail
+#source ${HOME}/dotfiles/kubetail/kubetail
+#source ${HOME}/dotfiles/kubetail/completion/kubetail.zsh
+source ${HOME}/dotfiles/oh-my-zsh/plugins/git/git.plugin.zsh
 
-source /home/${USER}/dotfiles/z/z.sh
-source /home/${USER}/dotfiles/fz/fz.plugin.zsh
-source /home/${USER}/vte.sh
+source ${HOME}/dotfiles/z/z.sh
+source ${HOME}/dotfiles/fz/fz.plugin.zsh
+source ${HOME}/vte.sh
 
 
 if [ -n "${commands[fzf-share]}" ]; then
@@ -71,7 +71,7 @@ case $TERM in
     ;;
 esac
 
-source /home/${USER}/.config/broot/launcher/bash/br
+source ${HOME}/.config/broot/launcher/bash/br
 
 function sudi (){
     echo "errrhmmm"
