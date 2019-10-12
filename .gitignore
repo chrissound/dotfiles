@@ -1,5 +1,5 @@
 # Ignore everything
 /*
 # Include all dot files.
-/!.*
-/!dotfiles
+!/.*
+!/dotfiles
