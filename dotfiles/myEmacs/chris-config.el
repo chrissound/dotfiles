@@ -60,7 +60,6 @@
 (with-eval-after-load 'intero
   (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
 
-(provide 'chris-config)
 
 (add-hook 'prog-mode-hook 'highlight-indentation-mode)
 (add-hook 'yaml-mode-hook 'highlight-indentation-mode)
@@ -79,11 +78,11 @@
       (format "%s\\|%s"
               vc-ignore-dir-regexp
               tramp-file-name-regexp))
-(setq tramp-verbose 6)
+(setq tramp-verbose 10)
 
 (setq-default adaptive-wrap-extra-indent 2)
-(add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
-(global-visual-line-mode +1)
+;; (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
+;; (global-visual-line-mode +1)
 (setq-default dotspacemacs-configuration-layers
               '((haskell :variables haskell-enable-hindent-style "chris-done")))
 
@@ -103,3 +102,9 @@
                              evil-insert-state-local-map
                              (kbd "M-RET")
                              #'org-meta-return)))
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(fset 'evil-visual-update-x-selection 'ignore)
+(setq ranger-show-hidden t)
+(provide 'chris-config)
+(setq debug-on-error '(wrong-type-argument))

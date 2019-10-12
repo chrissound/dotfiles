@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     python
      typescript
      docker
      php
@@ -39,12 +40,28 @@ values."
      html
      csv
      markdown
-     haskell
-     haskell
+     ;; (haskell :variables haskell-completion-backend 'company-ghci)
+     (haskell :variables
+              haskell-enable-hindent t
+              haskell-completion-backend 'lsp
+              haskell-process-type 'cabal-new-repl
+              )
+     (lsp :variables
+          default-nix-wrapper (lambda (args)
+                                (append
+                                 (append (list "nix-shell" "-I" "." "--command" )
+                                         (list (mapconcat 'identity args " "))
+                                         )
+                                 (list (nix-current-sandbox))
+                                 )
+                                )
+
+          lsp-haskell-process-wrapper-function default-nix-wrapper
+          )
+
      yaml
-     (haskell)
      ranger
-     gtags
+     ;; gtags
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -62,8 +79,8 @@ values."
                       )
      ;; better-defaults
      ;; markdown
-     org
-     shell-scripts
+     ;; org
+     ;; shell-scripts
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -82,8 +99,11 @@ values."
                                       iedit
                                       adaptive-wrap
                                       terraform-mode
-                                      gtags
+                                      ;; gtags
+                                      org-bullets
                                       ;; deadgrep
+                                      direnv
+                                      nix-sandbox
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -374,7 +394,7 @@ you should place your code here."
  '(helm-ag-base-command "rg --vimgrep --no-heading --smart-case")
  '(package-selected-packages
    (quote
-    (helm-gtags ggtags terraform-mode hcl-mode tide typescript-mode deadgrep spinner docker tablist dockerfile-mode docker-tramp adaptive-wrap iedit phpunit drupal-mode f phpcbf php-auto-yasnippets php-mode nginx-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode frames-only-mode company-web web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode web-completion-data highlight-indentation highlight-indent-guides indent-guide csv-mode insert-shebang fish-mode company-shell mmm-mode markdown-toc markdown-mode gh-md origami nix-mode org-projectile org-category-capture s org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot real-auto-save yaml-mode ranger helm-company helm-c-yasnippet fuzzy company-statistics company-cabal auto-yasnippet ac-ispell auto-complete smeargle orgit org-plus-contrib magit-gitflow helm-gitignore request gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell evil-magit magit magit-popup git-commit ghub treepy let-alist graphql with-editor diff-hl auto-dictionary intero flycheck dash hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode which-key use-package pcre2el macrostep hydra helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx flx helm-descbinds helm-ag exec-path-from-shell evil-visualstar evil-escape evil goto-chg undo-tree elisp-slime-nav diminish bind-map bind-key auto-compile packed ace-window ace-jump-helm-line helm avy helm-core popup async))))
+    (nix-sandbox direnv yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic lv transient org-bullets helm-gtags ggtags terraform-mode hcl-mode tide typescript-mode deadgrep spinner docker tablist dockerfile-mode docker-tramp adaptive-wrap iedit phpunit drupal-mode f phpcbf php-auto-yasnippets php-mode nginx-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode frames-only-mode company-web web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode web-completion-data highlight-indentation highlight-indent-guides indent-guide csv-mode insert-shebang fish-mode company-shell mmm-mode markdown-toc markdown-mode gh-md origami nix-mode org-projectile org-category-capture s org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot real-auto-save yaml-mode ranger helm-company helm-c-yasnippet fuzzy company-statistics company-cabal auto-yasnippet ac-ispell auto-complete smeargle orgit org-plus-contrib magit-gitflow helm-gitignore request gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell evil-magit magit magit-popup git-commit ghub treepy let-alist graphql with-editor diff-hl auto-dictionary intero flycheck dash hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode which-key use-package pcre2el macrostep hydra helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx flx helm-descbinds helm-ag exec-path-from-shell evil-visualstar evil-escape evil goto-chg undo-tree elisp-slime-nav diminish bind-map bind-key auto-compile packed ace-window ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

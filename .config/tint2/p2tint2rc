@@ -2,6 +2,19 @@
 # See https://gitlab.com/o9000/tint2/wikis/Configure for 
 # full documentation of the configuration options.
 #-------------------------------------
+
+# Gradient 1: thin film effect
+gradient = horizontal
+start_color = #000000 255
+end_color = #000000 0
+color_stop = 50 #000000 255
+
+# Gradient 2: thin film effect
+gradient = horizontal
+start_color = #000000 0
+end_color = #777777 255
+color_stop = 80 #000000 255
+
 # Backgrounds
 # Background 1: Panel
 rounded = 4
@@ -22,10 +35,11 @@ background_color_hover = #aaaaaa 22
 border_color_hover = #eaeaea 44
 background_color_pressed = #555555 4
 border_color_pressed = #eaeaea 44
+gradient_id = 1
 
 # Background 3: Active task
 rounded = 4
-border_width = 10
+border_width = 1
 border_sides = TBLR
 background_color = #0099ff 90
 border_color = #ffffff 40
@@ -33,6 +47,7 @@ background_color_hover = #aaaaaa 22
 border_color_hover = #eaeaea 44
 background_color_pressed = #555555 4
 border_color_pressed = #eaeaea 44
+gradient_id = 2
 
 # Background 4: Urgent task
 rounded = 4
@@ -96,9 +111,9 @@ taskbar_name_font = Iosevka 18
 taskbar_name_background_id = 0
 taskbar_name_active_background_id = 0
 taskbar_name_font_color = #e3e3e3 500
-taskbar_name_active_font_color = #ffffff 100
+taskbar_name_active_font_color = #00CCff 100
 taskbar_distribute_size = 1
-taskbar_sort_order = left
+taskbar_sort_order = application
 task_align = left
 
 #-------------------------------------

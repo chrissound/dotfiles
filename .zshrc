@@ -71,7 +71,9 @@ case $TERM in
     ;;
 esac
 
-source ${HOME}/.config/broot/launcher/bash/br
+if which br > /dev/null; then
+    source ${HOME}/.config/broot/launcher/bash/br
+fi
 
 function sudi (){
     echo "errrhmmm"

@@ -1,4 +1,6 @@
-#!/bin/sh
-#stack build --copy-bins --split-objs
-stack build --copy-bins
-mv /home/chris/.xmonad/xmonad-x86_64-linux $HOME/.local/bin/xmonad
+#!/usr/bin/env bash
+set -e
+
+echo "restart" >> /tmp2/xmonad.log
+
+exit 0

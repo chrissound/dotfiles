@@ -95,4 +95,9 @@ Plug 'yegappan/mru'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'LnL7/vim-nix'
+Plug 'vim-scripts/vim-auto-save'
+Plug 'tpope/vim-commentary'
 call plug#end()
+
+let g:auto_save_silent = 1
+let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
