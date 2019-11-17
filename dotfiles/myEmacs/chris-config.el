@@ -90,6 +90,33 @@
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (define-key yas-minor-mode-map (kbd "<backtab>") 'yas-expand)
 
+;; (global-set-key (kbd "<f5>")   'bm-next)
+;; (global-set-key (kbd "<f6>") 'bm-previous)
+;; (global-set-key (kbd "<f7>") 'bm-toggle)
+
+
+(defun bm-my-next ()
+  (interactive)
+  (bm-next)
+  (bm-show-all)
+)
+
+(defun bm-my-prev ()
+  (interactive)
+  (bm-next)
+  (bm-show-all)
+)
+
+(defun bm-my (a)
+  (interactive)
+  (a)
+  (bm-show-all)
+  )
+
+(spacemacs/set-leader-keys "Bn" (bm-my bm-next))
+;; (spacemacs/set-leader-keys "Bp" 'bm-my-previous)
+;; (spacemacs/set-leader-keys "Bm" ')
+
 ;; clipboard support terminal
 (setq x-select-enable-clipboard t 
       x-select-enable-primary t)
@@ -108,3 +135,8 @@
 (setq ranger-show-hidden t)
 (provide 'chris-config)
 (setq debug-on-error '(wrong-type-argument))
+(use-package direnv
+  :config
+  (direnv-mode))
+(setq-default flycheck-disabled-checkers '(haskell-stack-ghc))
+(require 'bm)

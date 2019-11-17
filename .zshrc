@@ -82,3 +82,6 @@ function sudi (){
     /run/wrappers/bin/sudo -u "$USER" zsh -i -c "$args"
 }
 #alias sudo='sudo -u "$USER" zsh -i -c '
+eval "$(direnv hook zsh)"
+
+source /etc/zsh/zshrc
