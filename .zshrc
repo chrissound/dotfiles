@@ -7,7 +7,8 @@ export PATH=${HOME}/.local/bin/:$PATH
 
 ## options 
 
-setopt INC_APPEND_HISTORY
+# setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 setopt autocd
 setopt PROMPT_SUBST
 
