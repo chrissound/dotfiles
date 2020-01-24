@@ -97,7 +97,14 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'LnL7/vim-nix'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-commentary'
+Plug 'masukomi/vim-markdown-folding'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
+
+if has("autocmd")
+  filetype plugin indent on
+endif
 
 let g:auto_save_silent = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
