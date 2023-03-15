@@ -12,8 +12,11 @@ setopt SHARE_HISTORY
 setopt autocd
 setopt PROMPT_SUBST
 
+#source ${HOME}/dotfiles/envs/main.sh
+
 source ${HOME}/dotfiles/my-alias-pkg/prompt_chris_setup
 
+source ${HOME}/dotfiles/my-alias-pkg/general.sh
 source ${HOME}/dotfiles/my-alias-pkg/chris-misc.plugin.zsh
 source ${HOME}/dotfiles/my-alias-pkg/init.sh
 source ${HOME}/dotfiles/my-alias-pkg/completion.sh
@@ -63,6 +66,7 @@ case $TERM in
   xterm*)
       chpwd() {
           setTerminalTitle
+          $(addToProjectile > /dev/null 2> /dev/null &)
           ll
       }
     precmd () setTerminalTitle
@@ -86,3 +90,11 @@ function sudi (){
 eval "$(direnv hook zsh)"
 
 source /etc/zsh/zshrc
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#
+if [[ "$(date +"%H")" -lt 15 ]] && [[ "$(date +"%H")" -gt 3 ]];then dconf write /org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-theme-colors "false"; fi
+
+#if h < 15
+  #white
